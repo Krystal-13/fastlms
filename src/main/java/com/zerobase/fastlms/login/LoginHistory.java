@@ -1,6 +1,5 @@
 package com.zerobase.fastlms.login;
 
-import com.zerobase.fastlms.member.entity.MemberCode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

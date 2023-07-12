@@ -1,8 +1,6 @@
 package com.zerobase.fastlms.course.controller;
 
 import com.zerobase.fastlms.admin.service.CategoryService;
-import com.zerobase.fastlms.banner.entity.Banner;
-import com.zerobase.fastlms.banner.model.BannerInput;
 import com.zerobase.fastlms.course.dto.CourseDto;
 import com.zerobase.fastlms.course.model.CourseInput;
 import com.zerobase.fastlms.course.model.CourseParam;
@@ -185,7 +183,7 @@ public class AdminCourseController extends BaseController {
     }
 
     @PostMapping("/admin/course/delete.do")
-    public String del(Model model, HttpServletRequest request, CourseInput parameter) {
+    public String del(CourseInput parameter) {
 
         boolean result = courseService.del(parameter.getIdList());
 

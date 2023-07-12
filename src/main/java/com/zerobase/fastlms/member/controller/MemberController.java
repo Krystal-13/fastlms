@@ -60,8 +60,7 @@ public class MemberController {
     }
 
     @PostMapping("/member/register")
-    public String registerSubmit(Model model, HttpServletRequest request,
-                                 MemberInput parameter) {
+    public String registerSubmit(Model model, MemberInput parameter) {
 
         boolean result = memberService.register(parameter);
         model.addAttribute("result", result);
@@ -175,7 +174,7 @@ public class MemberController {
     }
 
     @GetMapping("/member/withdraw")
-    public String memberWithdraw(Model model) {
+    public String memberWithdraw() {
 
         return "member/withdraw";
     }

@@ -60,7 +60,7 @@ public class AdminMemberController extends BaseController {
     }
 
     @PostMapping("/admin/member/status.do")
-    public String status(Model model, MemberInput parameter) {
+    public String status(MemberInput parameter) {
 
         boolean result = memberService.updateStatus(parameter.getUserId()
                                                 , parameter.getUserStatus());
@@ -70,7 +70,7 @@ public class AdminMemberController extends BaseController {
     }
 
     @PostMapping("/admin/member/password.do")
-    public String password(Model model, MemberInput parameter) {
+    public String password(MemberInput parameter) {
 
         boolean result = memberService.updatePassword(parameter.getUserId()
                                                     , parameter.getPassword());

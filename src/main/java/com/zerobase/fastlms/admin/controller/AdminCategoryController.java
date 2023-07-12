@@ -26,7 +26,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping("/admin/category/add.do")
-    public String add(Model model, CategoryInput parameter) {
+    public String add(CategoryInput parameter) {
 
         boolean result = categoryService.add(parameter.getCategoryName());
 
@@ -34,7 +34,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping("/admin/category/delete.do")
-    public String del(Model model, CategoryInput parameter) {
+    public String del(CategoryInput parameter) {
 
         boolean result = categoryService.del(parameter.getId());
 
@@ -42,7 +42,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping("/admin/category/update.do")
-    public String update(Model model, CategoryInput parameter) {
+    public String update(CategoryInput parameter) {
 
         boolean result = categoryService.update(parameter);
 
