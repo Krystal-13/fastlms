@@ -15,14 +15,6 @@
                 text-align: center;
                 padding: 50px;
             }
-            .pager {
-                margin-top: 10px;
-                text-align: center;
-            }
-            .pager a.on {
-                font-weight: bold;
-                color: red;
-            }
             .list .button {
                 position: relative;
                 padding: 10px 0;
@@ -41,6 +33,9 @@
                 position: absolute;
                 top: 0;
                 right: 0;
+            }
+            img {
+                width: 100px;
             }
         </style>
 
@@ -90,14 +85,16 @@
         </script>
     </head>
     <body>
-        <h1>강좌 관리</h1>
+        <h1>배너 관리</h1>
         <div th:replace="/fragments/layout.html :: fragment-admin-body-menu"></div>
 
         <div class="list">
             <div class="button">
+
                 <p class="total-count">전체 <span th:text="${totalCount}"></span>개</p>
-                <a href="/admin/course/add.do">강좌 등록</a>
+                <a href="/admin/banner/add.do">배너 등록</a>
                 <button id="deleteButton" type="button">선택 삭제</button>
+
             </div>
             <table>
                 <thead>
@@ -107,7 +104,10 @@
                         </th>
                         <th>NO</th>
                         <th>
-                            강좌명
+                            배너명
+                        </th>
+                        <th>
+                            이미지
                         </th>
                         <th>
                             등록일
@@ -115,14 +115,19 @@
                     </tr>
                 </thead>
                 <tbody id="dataList">
-                <tr th:each="x : ${list}">
+                <tr th:each="x, i : ${list}">
                     <td>
                         <input type="checkbox" th:value="${x.id}"/>
                     </td>
-                    <td th:text="${x.seq}">1</td>
+                    <td th:text="${totalCount - i.index}">1</td>
                     <td>
                         <p>
-                            <a th:href="'edit.do?id=' + ${x.id}" th:text="${x.subject}">강좌명</a>
+                            <a th:href="'edit.do?id=' + ${x.id}" th:text="${x.name}">배너명</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <img th:if="${x.urlFilename != null}" th:src="${x.urlFilename}" />
                         </p>
                     </td>
                     <td>
@@ -130,18 +135,16 @@
                     </td>
                 </tr>
                 <tr th:if="${#lists.size(list) < 1}">
-                    <td colspan="4">
+                    <td colspan="5">
                         <p class="nothing">내용이 없습니다.</p>
                     </td>
                 </tr>
                 </tbody>
             </table>
 
-            <div class="pager" th:utext="${pager}"></div>
-
         </div>
 
-        <form name="deleteForm" method="post" action="/admin/course/delete.do">
+        <form name="deleteForm" method="post" action="/admin/banner/delete.do">
             <input type="hidden" name="idList" />
         </form>
 

@@ -8,6 +8,7 @@ import com.zerobase.fastlms.member.model.MemberInput;
 import com.zerobase.fastlms.member.model.ResetPasswordInput;
 import com.zerobase.fastlms.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
@@ -71,7 +73,6 @@ public class MemberController {
     public String emailAuth(Model model, HttpServletRequest request) {
 
         String uuid = request.getParameter("id");
-        System.out.println(uuid);
 
         boolean result = memberService.emailAuth(uuid);
         model.addAttribute("result", result);

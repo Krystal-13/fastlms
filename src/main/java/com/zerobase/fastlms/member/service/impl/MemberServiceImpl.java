@@ -37,6 +37,7 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
     private final MailComponents mailComponents;
     private final MemberMapper memberMapper;
+
     @Override
     public boolean register(MemberInput parameter) {
 

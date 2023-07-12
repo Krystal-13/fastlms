@@ -1,6 +1,8 @@
 package com.zerobase.fastlms.course.controller;
 
 import com.zerobase.fastlms.admin.service.CategoryService;
+import com.zerobase.fastlms.banner.entity.Banner;
+import com.zerobase.fastlms.banner.model.BannerInput;
 import com.zerobase.fastlms.course.dto.CourseDto;
 import com.zerobase.fastlms.course.model.CourseInput;
 import com.zerobase.fastlms.course.model.CourseParam;

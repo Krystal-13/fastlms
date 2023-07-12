@@ -94,6 +94,38 @@
                 </tbody>
             </table>
 
+            <hr/>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>
+                        로그인 일자
+                    </th>
+                    <th>
+                        접속 IP
+                    </th>
+                    <th>
+                        접속 UserAgent
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="x, i: ${list}">
+                    <td th:text="${i.index + 1}">1</td>
+
+                    <td th:text="${x.loginDt}">2023-01-01</td>
+
+                    <td th:text="${x.clientIp}">IP</td>
+
+                    <td th:text="${x.userAgent}">userAgent</td>
+                </tr>
+                </tbody>
+
+            </table>
+
+
             <div>
                 <a href="list.do">목록</a>
             </div>
